@@ -1,0 +1,62 @@
+@import 'styles/utils.scss';
+@import 'styles/roundingbox.scss';
+@import 'styles/gradient.scss';
+
+.q-info{
+    .top{
+        overflow: hidden;
+        padding: $gd * 2 $gd * 1 0 $gd * 2;
+        h2{
+            font-weight: 600;
+            span{
+                display:block;
+                font-size: $fs*1;
+                font-weight: 200;
+            }
+            em{
+                display:block;
+                font-style: normal;
+                font-weight: 400;
+                font-size: $fs*1.5;
+            }
+            padding: $gd * 0.5 0 $gd * 2 0;
+        }
+        p{
+            padding-bottom: $gd * 1;
+            font-size: $fs * 0.9;
+            color: lighten($gc, 20%);
+        }
+    }
+    ul{
+        list-style: none;
+        padding: 0 $gd * 1.5;
+        li{
+            background: $radio;
+            @include border-radius($fs * 3);
+            &:nth-child(1):hover{
+                @include linear-gradient($pc1, lighten($pc1,20%));
+            }
+            &:nth-child(2):hover{
+                @include linear-gradient($pc2, lighten($pc2,20%));
+            }
+            &:nth-child(3):hover{
+                @include linear-gradient($pc3, lighten($pc3,20%));
+            }
+            &:nth-child(4):hover{
+                @include linear-gradient($pc4, lighten($pc4,20%));
+            }
+            &:hover{
+                font-weight: 600;
+                color: #fff;
+            }
+            label{
+                display:block;
+                margin: $gd * 1;
+                padding: $fs * 0.4 $fs * 0.5 $fs * 0.7 $gd * 2;
+            }   
+            input{
+                display:none;
+            }
+        }
+    }
+}

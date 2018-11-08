@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import styles from './Result.module.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 class Result extends Component {
     handleResult=()=>{

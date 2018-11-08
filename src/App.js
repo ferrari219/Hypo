@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import QinfoList from "./Components/QinfoList";
+import styles from './App.module.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 class App extends Component {
   id = 1;
   state = {
-    t: [
-      'a','b','c'
-    ],
     i: 0,
     dahyul: 0,
     damjp: 0,
@@ -443,11 +444,6 @@ class App extends Component {
     this.setState({
       i: this.id++
     });
-    // }
-    // else{
-    //   const { handleResult } = this;
-    //   handleResult();
-    // }
   };
 
   handleResult = () => {
@@ -459,8 +455,6 @@ class App extends Component {
 
     let MxNum = 0; //첫번째로 큰값
     let SxNum = 0; //두번째로 큰값
-    // let MxG = ''; //기질판독값
-    // let SxG = ''; //기질판독값
     let Result1 = 0; //기질번호
     let Result2 = 0; //기질번호
     
@@ -477,22 +471,32 @@ class App extends Component {
         // SxG = list2[k];
       }
     }
-    // alert(" "+Result1+"이고, "+Result2+"입니다.")
-
-    // alert("당신의 주기질은 "+MxG+"이고, 부기질은 "+SxG+"입니다.")
-    // return (Result1, Result2);
     this.setState({
       max1: Result1,
       max2: Result2
     })
   };
 
+  handleReset=()=>{
+    this.setState({
+      i:0,
+      dahyul:0,
+      damjp:0,
+      ooul:0,
+      jumak:0
+    })
+    this.id = 1;
+  }
+
   render() {
     //alert(this.state.information[0].a1);
-    const { handleCount, handleNext, handleResult } = this;
+    const { handleCount, handleNext, handleResult, handleReset } = this;
     return (
-      <div>
-        <h1>히포크라테스 기질 테스트</h1>
+      <div className={cx('wrap')}>
+        <h1>
+          히포크라테스 기질 테스트
+          <button onClick={handleReset}>처음으로</button>
+        </h1>
         <QinfoList
           data={this.state.information}
           onCounter={handleCount}
@@ -503,7 +507,7 @@ class App extends Component {
           max1={this.state.max1} max2={this.state.max2} 
           result={this.state.result}
         />
-        <div className="score">
+        {/* <div className="score">
           &nbsp;&nbsp; {JSON.stringify(this.state.i)}
           &nbsp;&nbsp; {JSON.stringify(this.state.maxi)}
           <br />
@@ -512,6 +516,18 @@ class App extends Component {
           &nbsp;&nbsp; {JSON.stringify(this.state.ooul)}
           &nbsp;&nbsp; {JSON.stringify(this.state.jumak)}
           &nbsp;&nbsp;
+        </div> */}
+        <footer>2018 copyright Chun</footer>
+
+        <div className={cx('ad-ban')}>
+          <iframe
+          width="320"
+          height="50"
+          allowtransparency="true"
+          src="https://mtab.clickmon.co.kr/pop/wp_m_320.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1046692%7C%5E%7CAdver_M_1046207&mon_rf=REFERRER_URL"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
         </div>
       </div>
     );

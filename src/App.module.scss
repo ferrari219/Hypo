@@ -1,0 +1,25 @@
+@import 'styles/utils.scss';
+@import 'styles/gradient.scss';
+@import 'styles/boxshadow.scss';
+
+h1{
+    display:block;
+    padding: $fs * 0.5 $gd*1 $fs * 0.7 $gd*1;
+    @include linear-gradient(darken($pc3,10%), lighten($pc3,10%));
+    @include box-shadow(2);
+    color: #fff;
+}
+footer{
+    padding: $gd * 1 0;
+    font-size: $fs * 0.9;
+    text-align: center;
+    color: lighten($gc,30%)
+}
+.ad-ban{
+    // position: fixed;
+    // bottom:0;
+    background:red;
+    width: 100%;
+    height: 50px;
+    text-align:center;
+}

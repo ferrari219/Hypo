@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import styles from './QinfoList.module.scss';
+import classNames from 'classnames/bind';
 import Qinfo from './Qinfo';
 import Result from './Result';
+
+const cx = classNames.bind(styles);
 
 class Qlist extends Component {
   render() {
